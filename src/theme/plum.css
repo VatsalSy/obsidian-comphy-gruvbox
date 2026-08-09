@@ -1,0 +1,69 @@
+/*
+ * Gruvbox Plum variant (dark mode only).
+ *
+ * Mirrors the "CoMPhy Gruvbox Plum" palette shipped in the VS Code, Zed and
+ * Neovim themes: near-black neutral surfaces (the base dark theme keeps its
+ * purple-tinted neutrals), bright near-white text, the brand purple #68236D
+ * retained for selection and interactive accents, and code colours shifted
+ * toward Dracula hues.
+ *
+ * Enable with the Style Settings plugin toggle, or with a one-line CSS
+ * snippet: `body { --comphy-plum: 1; } body:not(.comphy-plum) {}` — the
+ * supported route is the `comphy-plum` class toggle below.
+ */
+
+/* @settings
+name: CoMPhy Theme
+id: comphy-obsidian-theme
+settings:
+  -
+    id: comphy-plum
+    title: Gruvbox Plum variant
+    description: Near-black surfaces with Dracula-leaning code colours (dark mode only)
+    type: class-toggle
+*/
+
+body.comphy-plum.theme-dark {
+  /* Neutral near-black surfaces replace the purple-tinted ramp */
+  --surface-0: #111111;
+  --surface-1: #161616;
+  --surface-2: #1c1c1c;
+  --surface-3: #232323;
+  --surface-4: #2a2a2a;
+
+  --text-primary: #fcfcfc;
+  --text-secondary: #ebdbb2;
+  --text-muted: #a89984;
+  --text-faint: #7c6f64;
+
+  --border-subtle: rgba(235, 219, 178, 0.12);
+  --border-strong: rgba(235, 219, 178, 0.24);
+
+  --link-color: #bd93f9;
+  --link-hover: #d6acff;
+  --link-external: #83a598;
+
+  /* Markdown heading cascade: warm-to-cool, matching the editor themes */
+  --heading-1: #fb4934;
+  --heading-2: #fe8019;
+  --heading-3: #fabd2f;
+  --heading-4: #b8bb26;
+  --heading-5: #83a598;
+  --heading-6: #d3869b;
+
+  --focus-ring: #8a3b90;
+
+  --panel-glow: radial-gradient(circle at 20% 0%, rgba(104, 35, 109, 0.22), transparent 46%);
+
+  /* Dracula-leaning code colours */
+  --pre-code: #1c1c1c;
+  --code-normal: #e2dcd0;
+  --code-comment: #7887ab;
+  --code-function: #ff79c6;
+  --code-keyword: #f1fa8c;
+  --code-string: #50fa7b;
+  --code-number: #bd93f9;
+  --code-operator: #ffb86c;
+  --code-type: #8be9fd;
+  --code-property: #83a598;
+}
