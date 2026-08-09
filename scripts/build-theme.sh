@@ -12,6 +12,7 @@ parts=(
   "navigation.css"
   "plugins.css"
   "accessibility.css"
+  "plum.css"
 )
 
 tmp_dir="$(dirname "$OUT_FILE")"
