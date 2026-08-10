@@ -17,6 +17,9 @@
     "url": "https://github.com/VatsalSy/comphy-obsidian-theme/issues"
   },
   "homepage": "https://github.com/VatsalSy/comphy-obsidian-theme#readme",
+  "overrides": {
+    "postcss": ">=8.5.12"
+  },
   "devDependencies": {
     "stylelint": "^17.3.0"
   }
