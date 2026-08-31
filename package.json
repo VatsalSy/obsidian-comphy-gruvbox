@@ -1,6 +1,6 @@
 {
   "name": "comphy-obsidian-theme",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "A research-focused Obsidian theme for academic and research workflows.",
   "scripts": {
     "lint:css": "stylelint \"src/theme/**/*.css\" \"theme.css\"",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VatsalSy/comphy-obsidian-theme.git"
+    "url": "git+https://github.com/comphy-lab/comphy-obsidian-theme.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VatsalSy/comphy-obsidian-theme/issues"
+    "url": "https://github.com/comphy-lab/comphy-obsidian-theme/issues"
   },
-  "homepage": "https://github.com/VatsalSy/comphy-obsidian-theme#readme",
+  "homepage": "https://github.com/comphy-lab/comphy-obsidian-theme#readme",
   "overrides": {
     "postcss": ">=8.5.12"
   },
