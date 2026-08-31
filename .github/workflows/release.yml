@@ -15,6 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # CI runs on push and pull_request, neither of which fires for a tag, so
+      # without this a tagged release could still upload a stale theme.css.
+      - name: Verify generated theme.css and version alignment
+        run: bash scripts/check-generated.sh
+
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:

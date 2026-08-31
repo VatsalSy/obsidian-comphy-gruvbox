@@ -15,13 +15,22 @@ if ! git diff --quiet -- theme.css; then
   exit 1
 fi
 
-# manifest.json is what Obsidian reads; package.json is repository metadata.
-# They drifted once already, so keep them pinned together.
+# manifest.json is what Obsidian reads; package.json is repository metadata and
+# package-lock.json records the root version a third time. All three drifted
+# once already, so keep them pinned together.
 manifest_version="$(node -p "require('./manifest.json').version")"
 package_version="$(node -p "require('./package.json').version")"
-if [[ "$manifest_version" != "$package_version" ]]; then
-  echo "error: manifest.json is $manifest_version but package.json is $package_version." >&2
-  exit 1
-fi
+lock_version="$(node -p "require('./package-lock.json').version")"
+lock_root_version="$(node -p "require('./package-lock.json').packages[''].version")"
+
+for pair in "package.json:$package_version" "package-lock.json:$lock_version" \
+            "package-lock.json packages['']:$lock_root_version"; do
+  name="${pair%%:*}"
+  value="${pair##*:}"
+  if [[ "$value" != "$manifest_version" ]]; then
+    echo "error: manifest.json is $manifest_version but $name is $value." >&2
+    exit 1
+  fi
+done
 
 echo "generated artefacts are in sync (version $manifest_version)"
